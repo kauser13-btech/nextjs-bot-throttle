@@ -1,0 +1,36 @@
+{
+  "name": "nextjs-bot-throttle",
+  "version": "1.0.0",
+  "description": "A Next.js middleware for intelligent bot detection and rate limiting with configurable limits for search engines, social media crawlers, and AI bots",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nextjs",
+    "middleware",
+    "bot",
+    "throttle",
+    "rate-limit",
+    "crawler",
+    "googlebot",
+    "seo",
+    "ai-bot",
+    "chatgpt",
+    "claude"
+  ],
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "next": ">=13.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "files": [
+    "index.js",
+    "middleware.js",
+    "lib/"
+  ]
+}
