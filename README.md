@@ -31,16 +31,41 @@ pnpm add nextjs-bot-throttle
 
 ## Quick Start
 
-### Basic Usage
+### Basic Usage (Option 1: Export Both)
 
-Create a `middleware.js` (or `middleware.ts`) file in the root of your Next.js project:
+Create a `middleware.js` (or `middleware.ts`) file in the root of your Next.js project and export both the middleware and config:
 
 ```javascript
 // middleware.js
 export { middleware, config } from 'nextjs-bot-throttle';
 ```
 
-That's it! The middleware will now protect your application with default rate limits.
+That's it! The middleware will now protect your application with default rate limits and apply to all routes.
+
+### Basic Usage (Option 2: Custom Config)
+
+If you need custom route matching, export only the middleware and define your own config:
+
+```javascript
+// middleware.js
+export { middleware } from 'nextjs-bot-throttle';
+
+// Configure which routes the middleware runs on
+export const config = {
+  matcher: [
+    /*
+     * Match all request paths except for:
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     * - public files (images, etc.)
+     */
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+  ],
+};
+```
+
+This approach gives you full control over which routes are protected.
 
 ### Custom Configuration
 
